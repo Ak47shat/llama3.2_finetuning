@@ -6,8 +6,8 @@ This repository offers a **complete, end-to-one workflow** for fine-tuning Llama
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/](https://github.com/)<user>/<repo>.git
-    cd <repo>
+    git clone https://github.com/Ak47shat/llama3.2_finetuning.git
+    cd llama3.2_finetuning    
     ```
 2.  **Install Dependencies:**
     ```bash
