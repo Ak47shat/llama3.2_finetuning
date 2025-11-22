@@ -1,77 +1,47 @@
-🦙 Llama 3.2 Fine-Tuning Notebook
+# 🦙 Llama 3.2 Fine-Tuning: All-in-One Guide
 
-This repository contains a complete, end-to-end workflow for fine-tuning Llama 3.2 using a Jupyter Notebook. It covers dataset preparation, tokenization, model loading, training configuration, and evaluation — all in one place.
+This repository offers a **complete, end-to-one workflow** for fine-tuning Llama 3.2, contained entirely within the `llama3_2_finetuning.ipynb` Jupyter Notebook.
 
-📁 Repository Structure
-.
-├── llama3_2_finetuning.ipynb   # Main notebook for fine-tuning
-├── data/                       # (Optional) Training dataset directory
-└── README.md
+## ⚙️ Prerequisites & Setup
 
-⚙️ Installation
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/](https://github.com/)<user>/<repo>.git
+    cd <repo>
+    ```
+2.  **Install Dependencies:**
+    ```bash
+    pip install transformers accelerate datasets sentencepiece bitsandbytes
+    pip install torch --index-url [https://download.pytorch.org/whl/cu118](https://download.pytorch.org/whl/cu118) # For CUDA 11.8
+    ```
+3.  **Data:** Add your training dataset files to the `./data/` directory.
 
-Install the required dependencies:
+## ▶️ Execution Steps
 
-pip install transformers accelerate datasets sentencepiece bitsandbytes
+1.  **Launch Notebook:**
+    ```bash
+    jupyter notebook llama3_2_finetuning.ipynb
+    ```
+2.  **Run:** Execute all cells in the notebook sequentially.
+3.  **Output:** The fine-tuned model will be saved in the `./outputs/` directory.
 
+## 🧪 Key Features in the Notebook
 
-For GPU training (CUDA 11.8):
+The notebook handles the entire lifecycle:
 
-pip install torch --index-url https://download.pytorch.org/whl/cu118
+| Category | Features Included |
+| :--- | :--- |
+| **Model Setup** | Loads Llama 3.2 and tokenizer. |
+| **Data Processing** | Preprocesses and tokenizes datasets. |
+| **Training** | Uses `transformers` + `accelerate`. |
+| **Optimization** | Optional **4-bit training** with `bitsandbytes` (for lower VRAM). |
+| **Evaluation** | Calculates **perplexity** and provides **sample generations**. |
+| **Export** | Instructions for local inference, quantized inference, and Hugging Face Hub upload. |
 
-▶️ Running the Notebook
+## ⚠️ Important Notes
 
-Clone the repository:
+* Reduce batch size if GPU VRAM is low.
+* Avoid unnecessarily high learning rates to prevent instability.
+* Model performance highly depends on the quality of your dataset.
 
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
-
-
-Launch Jupyter:
-
-jupyter notebook llama3_2_finetuning.ipynb
-
-
-Add your dataset to the data/ directory
-
-Run all cells sequentially
-
-The fine-tuned model will be saved in ./outputs/
-
-🧪 Features Included in the Notebook
-
-Load Llama 3.2 and tokenizer
-
-Preprocess and tokenize datasets
-
-Fine-tuning with transformers + accelerate
-
-Optional 4-bit training with bitsandbytes
-
-Evaluation (perplexity, sample generations)
-
-Exporting the final model for inference
-
-Notes on avoiding overfitting and improving stability
-
-🚀 Exporting the Model
-
-The notebook includes instructions to export the trained model for:
-
-Local inference with Hugging Face Transformers
-
-Quantized inference (4-bit / 8-bit)
-
-Uploading to Hugging Face Model Hub
-
-⚠️ Important Notes
-
-Lower batch size if VRAM is low
-
-Most instability comes from choosing an unnecessarily high learning rate
-
-Don’t expect massive performance jumps unless your dataset is high-quality
-
-📝 License
-
-This project is released under the MIT License.
+This project is released under the **MIT License**.
